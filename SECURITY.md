@@ -29,7 +29,7 @@ The NGINX Community requests that all suspected vulnerabilities be reported priv
 
 ### Public Disclosure Processes
 
-If you are aware of a publicly released vulnerability please immediately report this via the [Reporting a Vulnerability](SECURITY.md#reporting-a-vulnerability) guidelines above.  We may ask the reporter if the issue can be handled according to the private disclosure process.  If the reporter agrees, then the issue will be handled following that process.
+If you are aware of a publicly released vulnerability within NGINX code, please immediately report this via the [Reporting a Vulnerability](SECURITY.md#reporting-a-vulnerability) guidelines above.  We may ask the reporter if the issue can be handled according to the private disclosure process.  If the reporter agrees, then the issue will be handled following that process.
 
 ### Confidentiality and Integrity
 
@@ -48,6 +48,13 @@ Availability issues must meet the following criteria to trigger the security rel
 
 **Note**: It is the operator's responsibility to configure NGINX according to best practices, including setting appropriate timeouts, rate limits, and resource-related features to ensure robust confidentiality, integrity, and availability.
 
+**Note**: When an issue is found which only triggers with address sanitizer or other similar runtime options are enabled, we will not consider that a vulnerability as teh operating environment does not matcha  production use case.
+
+### Experimental Code
+
+Issues found in experimental code or features will only be considered a vulnerability under the following conditions:
+
+- Placeholder
 
 ## Trusted Configurations
 
@@ -78,7 +85,7 @@ Fixes are created and tested by the core team using a Github private fork for se
 
 ### Released Versions
 
-All security fixes will be applied to all supported stable releases as well as main, as applicable.  See [releases.md]
+All security fixes will be applied to all supported stable releases as well as main, as applicable.  See [releases.md]()
 
 ## Vulnerability Fix Disclosure Processes
 
@@ -94,7 +101,7 @@ Because NGINX is a project supported by F5, we also generally follow the policy 
 
 The following Service Level Objectives (SLOs) 
 
-* All vulnerability disclosures will be responded to within one (1) business day.
+* All vulnerability disclosures will be  acknowledged within one (1) business day.
 
 * Fixes will be developed and released within 90 days from the date of disclosure.  If the fix is difficult such that an extension will be needed, the core team will work with the disclosing person for that extension.
 
