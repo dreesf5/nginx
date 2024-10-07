@@ -39,16 +39,18 @@ Vulnerabilities that compromise data Confidentiality or Integrity are considered
 
 Availability issues must meet the following criteria to trigger the security release process:
 
-- A core or critical module is affected (see the section on [Modules Under Scope](/SECURITY.md#modules-under-scope) for details).
-- The issue must arise from traffic that the module is designed to handle. For example, a module built to secure against untrusted client traffic failing when exposed to such traffic.
+•	Is present in a standard module included with nginx
+•	The issue arises from traffic that the module is designed to handle. For example, a module built to secure against untrusted client traffic failing when exposed to such traffic.
 
-- A resource exhaustion issue needs to meet these additional criteria:
-  - It is not mitigated by existing timeout configurations, or applying short timeout values is impractical.
-  - The issue results in highly asymmetric, extreme resource consumption.
+A resource exhaustion issue needs to meet these additional criteria:
 
-**Note**: It is the operator's responsibility to configure NGINX according to best practices, including setting appropriate timeouts, rate limits, and resource-related features to ensure robust confidentiality, integrity, and availability.
+•	It is not mitigated by existing timeout, rate limiting, buffer size configuration or applying short timeout values is impractical.
+•	The issue results in highly asymmetric, extreme resource consumption.
 
-**Note**: When an issue is found which only triggers with address sanitizer or other similar runtime options are enabled, we will not consider that a vulnerability as teh operating environment does not matcha  production use case.
+Availability issues that will be treated as regular bug fixes and are explicitly excluded from the security release process:
+
+•	Local file content that only results in worker process termination. 
+•	Upstream response content that only results in worker process termination.
 
 ### Experimental Code
 
@@ -58,7 +60,7 @@ Issues found in experimental code or features will only be considered a vulnerab
 
 ## Trusted Configurations
 
-In NGINX, configuration files, modules, certificate/key pairs, and NGINX JavaScript are all considered trusted sources. This means that any security issues or vulnerabilities that arise due to the loading or execution of these trusted components within NGINX are not considered vulnerabilities. Operators must ensure the security and integrity of these trusted sources.
+In NGINX, configuration files, modules, certificate/key pairs, NGINX JavaScript and local file content are all considered trusted sources. This means that issues which arise due to the loading or execution of these trusted components within NGINX are not considered vulnerabilities. Operators must ensure the security and integrity of these trusted sources.
 
 ### Risks of Misconfigurations
 
